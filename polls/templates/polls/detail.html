@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>问题详情页</title>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+
+            <h1>{{ question.question_text }}</h1>
+
+            {% if error_message %}
+            <p><strong>{{ error_message }}</strong></p>
+            {% endif %}
+
+            <form class="form-group" action="{% url 'polls:vote' question.id %}" method="post">
+                {% csrf_token %}
+                {% for choice in question.choice_set.all %}
+                <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{choice.id}}">
+                <label for="choice{{forloop.counter}}">{{ choice.choice_text }} </label>
+                <br>
+                {% endfor %}
+                <input class="btn btn-primary" type="submit" value="Vote">
+            </form>
+
+            <p>
+                <a href="/polls/">返回Polls首页</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
