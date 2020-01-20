@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>投票 | Polls</title>
@@ -7,26 +8,28 @@
     <link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
     <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
 </head>
-<body style="padding-top:50px">
-<div class="container">
-    <div class="row">
-        <div class="col-md-6">
-            <h1>Polls list</h1>
-            {% if latest_question_list %}
-            <ul class="list-group" style="font-size:16px">
-                {% for question in latest_question_list %}
-                <li class="list-group-item">
-                    <a href="{% url 'polls:detail' question.id %}">{{question.question_text}}</a>
-                </li>
-                {% endfor %}
-            </ul>
-            {% else %}
-            <p>No polls are available.</p>
-            {% endif %}
 
-            <p><a class="btn btn-light" href="/">返回首页</a></p>
+<body style="padding-top:50px">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h1>Polls list</h1>
+                {% if latest_question_list %}
+                <ul class="list-group" style="font-size:16px">
+                    {% for question in latest_question_list %}
+                    <li class="list-group-item">
+                        <a href="{% url 'polls:detail' question.id %}">{{question.question_text}}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% else %}
+                <p>No polls are available.</p>
+                {% endif %}
+
+                <p><a class="btn btn-light" href="/">返回首页</a></p>
+            </div>
         </div>
     </div>
-</div>
 </body>
+
 </html>
