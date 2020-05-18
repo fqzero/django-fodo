@@ -77,8 +77,14 @@ WSGI_APPLICATION = "fodo.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
+        # "ENGINE": "django.db.backends.sqlite3",
+        # "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'pydb',
+        'USER': 'leekone',
+        'PASSWORD': 'leekone@9080',
+        'HOST': '120.79.87.193',
+        'PORT': '3306',
     }
 }
 
