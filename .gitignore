@@ -123,4 +123,4 @@ $RECYCLE.BIN/
 .directory
 
 # vscode
-.vscode/
+.vscode/*
